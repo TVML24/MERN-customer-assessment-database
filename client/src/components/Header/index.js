@@ -4,6 +4,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Button from 'react-bootstrap/Button';
+import '../../styles.css';
 
 import Auth from '../../utils/auth';
 
@@ -13,13 +14,13 @@ const Header = () => {
     Auth.logout();
   };
   return (
-    <Navbar bg="light" variant="light">
-      <Container>
-        <Navbar.Brand as={Link} to="/">Project 3</Navbar.Brand>
-        <Nav className="me-auto">
-          <Nav.Link as={Link} to="/">Home</Nav.Link>
+    <Navbar bg="light" variant="light" className="nav-colour" id="nav-size">
+      <Container className="nav-top nav-colour" >
+        <Navbar.Brand className="nav-colour" as={Link} to="/">Customer Database</Navbar.Brand>
+        <Nav className="me-auto" >
+          <Nav.Link as={Link} to="/" className="nav-colour">Home</Nav.Link>
         </Nav>
-        <div>
+        <div className="nav-colour" >
           {Auth.loggedIn() ? (
             <>
               <Button as={Link} variant='info' className="m-2" to="/me">

@@ -4,7 +4,7 @@ const Home = () => {
 
   return (
     <main>
-      Home Page
+      Two tiles on this page. One to manage Rules. One to manage customers.
     </main>
   );
 };

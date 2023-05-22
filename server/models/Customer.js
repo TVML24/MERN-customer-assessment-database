@@ -1,7 +1,9 @@
 const { Schema, model, mongoose } = require('mongoose');
+const Asset = require('./Asset');
+const Income = require('./Income');
 
 const customerSchema = new Schema({
-    customerId: {
+    customerid: {
         type: Schema.Types.ObjectId,
         default: () => new mongoose.Types.ObjectId(),
     },
@@ -35,6 +37,20 @@ const customerSchema = new Schema({
         unique: true,
         match: [/.+@.+\..+/, 'Must match an email address!'],
     },
+
+    income: [
+    {
+        type: Schema.Types.ObjectId,
+        ref: 'Income',
+    }
+        ],
+    assets: [
+    {
+        type: Schema.Types.ObjectId,
+        ref: 'Asset',
+    }
+        ],
+
     totalincome: {
         type: Number,
     },
