@@ -8,8 +8,8 @@ const customerSchema = new Schema({
         default: () => new mongoose.Types.ObjectId(),
     },
     first: {
-      type: String,
-      required: true,
+        type: String,
+        required: true,
     },
     last: {
         type: String,
@@ -39,17 +39,17 @@ const customerSchema = new Schema({
     },
 
     income: [
-    {
-        type: Schema.Types.ObjectId,
-        ref: 'Income',
-    }
-        ],
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Income',
+        }
+    ],
     assets: [
-    {
-        type: Schema.Types.ObjectId,
-        ref: 'Asset',
-    }
-        ],
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Asset',
+        }
+    ],
 
     totalincome: {
         type: Number,

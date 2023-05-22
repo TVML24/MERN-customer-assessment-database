@@ -1,0 +1,92 @@
+[
+  {
+    "first": "Brian",
+    "last": "Kernighan",
+    "age": 31,
+    "area": "SA",
+    "address": "1 Rodham Avenue, Kentham",
+    "contactnumber": 77777777,
+    "email": "Brian@gmail.com"
+  },
+  {
+    "first": "Bill",
+    "last": "Kernicke",
+    "age": 37,
+    "area": "QLD",
+    "address": "1 Rodney Avenue, Kent Hills",
+    "contactnumber": 77777778,
+    "email": "Bill@gmail.com"
+  },
+  {
+    "first": "Jack",
+    "last": "Singer",
+    "age": 56,
+    "area": "NSW",
+    "address": "1 Royal Oak Avenue, Barham",
+    "contactnumber": 77777779,
+    "email": "Jack@gmail.com"
+  },
+  {
+    "first": "Tom",
+    "last": "Lua",
+    "age": 42,
+    "area": "WA",
+    "address": "1 Victory Street, Kings Village",
+    "contactnumber": 77777333,
+    "email": "Tom@gmail.com"
+  },
+  {
+    "first": "Lila",
+    "last": "Layton",
+    "age": 19,
+    "area": "NT",
+    "address": "1 Triumphant Street, Queens Grove",
+    "contactnumber": 77775333,
+    "email": "Lila@gmail.com"
+  },
+  {
+    "first": "Viet",
+    "last": "Nguyen",
+    "age": 17,
+    "area": "TAS",
+    "address": "1 Nelson St, Harbour Bay",
+    "contactnumber": 77577333,
+    "email": "Viet@gmail.com"
+  },
+  {
+    "first": "Rachel",
+    "last": "Escargo",
+    "age": 36,
+    "area": "VIC",
+    "address": "1 Pursuit Street, Fox Hills",
+    "contactnumber": 74777333,
+    "email": "Rachel@gmail.com"
+  },
+  {
+    "first": "Elizabeth",
+    "last": "Breadwinner",
+    "age": 23,
+    "area": "QLD",
+    "address": "1 Agincourt Street, Princely Way",
+    "contactnumber": 77733333,
+    "email": "Elizabeth@gmail.com"
+  },
+  {
+    "first": "Victoria",
+    "last": "Sanguinis",
+    "age": 83,
+    "area": "NSW",
+    "address": "1 Swiftsure Street, Sodden Town",
+    "contactnumber": 23777333,
+    "email": "Victoria@gmail.com"
+  },
+  {
+    "first": "William",
+    "last": "Bo",
+    "age": 23,
+    "area": "TAS",
+    "address": "1 Endurance Street, Penultimate Hill",
+    "contactnumber": 76777333,
+    "email": "William@gmail.com"
+  }
+]

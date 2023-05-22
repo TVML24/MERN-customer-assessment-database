@@ -1,8 +1,8 @@
 const { gql } = require('apollo-server-express');
+const { DateScalar, TimeScalar, DateTimeScalar } = require ('graphql-date-scalars');
 
 const typeDefs = gql`
   scalar Date
-  scalar DateTime
 
   type User {
     _id: ID
@@ -31,6 +31,8 @@ const typeDefs = gql`
     area: String
     address: String
     contactnumber: Int
+    assets: [Asset]
+    income: [Income]
     email: String
   }
 
