@@ -29,64 +29,76 @@ const resolvers = {
     },
     customer: async (parent, { customerid }) => {
       const customer = Customer.findOne({ customerid: customerid }).populate(['assets', 'income']);
-      console.log(customer);
       return customer;
     },
   },
 
   Mutation: {
+    //works
     addIncome: async (parent, { customerid, type, startdate, incomesource, payfrequency, amount }) => {
       const income = await Income.create({ type, startdate, incomesource, payfrequency, amount, customerid });
       const customer = await Customer.findOneAndUpdate({ customerid: customerid }, { $push: { income: income._id }}).populate('income');
-      console.log(income)
       return income;
     },
-    deleteIncome: async (parent, { incomeid, customerid }) => {
-      const income = await Income.findOneAndDelete({ incomeid: incomeid });
-      const customer = await Customer.findOneAndUpdate({ customerid: customerid }, { $pull: { income: income.incomeid }}).populate('income');
+    //works
+    deleteIncome: async (parent, { _id, customerid }) => {
+      const income = await Income.findOneAndDelete({ _id: _id });
+      const customer = await Customer.findOneAndUpdate({ customerid: customerid }, { $pull: { income: _id }}).populate('income');
       return income;
     },
-    updateIncome: async (parent, { incomeid, customerid }) => {
-      const income = await Income.findOneAndUpdate({ incomeid: incomeid },
+    //works
+    updateIncome: async (parent, { _id, customerid, type, startdate, incomesource, payfrequency, amount }) => {
+      const customerintitial = await Customer.findOneAndUpdate({ customerid:customerid }, { $pull: { income: _id }});
+      const income = await Income.findOneAndUpdate({ _id: _id },
         {type: type, startdate: startdate, incomesource: incomesource, payfrequency: payfrequency, amount: amount, customerid: customerid},
         {new: true});
+      const customerupdated = await Customer.findOneAndUpdate({customerid:customerid }, { $push: { income: _id }  });
       return income;
     },
+    //works
     addAsset: async (parent, { customerid, type, startdate, asxcode, unit, numberunits, priceperunit }) => {
       const asset = await Asset.create({ type, startdate, asxcode, unit, numberunits, priceperunit, customerid });
-      const customer = await Customer.findOne({ customerid: customerid }, { $push: { income: asset.assetid }}).populate('assets');
-      return asset;
-      // push thing
-    },
-    deleteAsset: async (parent, { assetid, customerid }) => {
-      const asset = await Asset.findOneAndDelete({ assetid: assetid });
-      const customer = await Customer.findOne({ customerid: customerid }, { $push: { income: asset.assetid }}).populate('assets');
+      const customer = await Customer.findOneAndUpdate({ customerid: customerid }, { $push: { assets: asset._id }}).populate('assets');
       return asset;
     },
-    updateAsset: async (parent, { assetid, customerid, type, startdate, asxcode, unit, numberunits, priceperunit}) => {
-      const asset = await Asset.findOneAndUpdate({ assetid: assetid }, 
-        { assetid:assetid, customerid:customerid, type:type, startdate: startdate, asxcode:asxcode, unit:unit, numberunits:numberunits, priceperunit:priceperunit },
+    //works
+    deleteAsset: async (parent, {_id, customerid }) => {
+      const asset = await Asset.findOneAndDelete({ _id: _id });
+      const customer = await Customer.findOneAndUpdate({ customerid: customerid }, { $pull: { income: asset._id }}).populate('assets');
+      return asset;
+    },
+    //works
+    updateAsset: async (parent, { _id, customerid, type, startdate, asxcode, unit, numberunits, priceperunit}) => {
+      const customerintitial = await Customer.findOneAndUpdate( { customerid:customerid }, { $pull: { asset: _id } });
+      const asset = await Asset.findOneAndUpdate({ _id: _id }, 
+        { _id:_id, customerid:customerid, type:type, startdate: startdate, asxcode:asxcode, unit:unit, numberunits:numberunits, priceperunit:priceperunit },
         {new: true});
+      const customerupdated = await Customer.findOneAndUpdate( { customerid:customerid }, { $push: { asset: _id } });
       return asset;
     },
+    //works
     addCustomer: async (parent, { first, last, age, area, address, contactnumber, email }) => {
       const customer = await Customer.create({ first, last, age, area, address, contactnumber, email });
       return customer;
     },
+    //works
     updateCustomer: async (parent, { customerid, first, last, age, area, address, contactnumber, email }) => {
       const customer = await Customer.findOneAndUpdate({ customerid: customerid }, 
         {first: first, last:last, age:age, area:area, address:address, contactnumber: contactnumber, email: email},
         {new: true});
         return customer;
     },
+    //works
     deleteCustomer: async (parent, { customerid }) => {
       const customer = await Customer.findOneAndDelete({ customerid: customerid });
       return customer;
     },
+    //works
     addRule: async (parent, { rulename, agemin, agemax, area, incomemax, incomemin, assetsmax, assetsmin }) => {
       const rule = await Rule.create({ rulename, agemin, agemax, area, incomemax, incomemin, assetsmax, assetsmin });
       return rule;
     },
+    //works
     deleteRule : async (parent, { rulename: rulename }) => {
       const rule = await Rule.findOneAndDelete({ rulename });
       return rule;

@@ -37,7 +37,7 @@ const typeDefs = gql`
   }
 
   type Asset {
-    assetid: ID
+    _id: ID
     type: String
     startdate: Date
     asxcode: String
@@ -48,7 +48,7 @@ const typeDefs = gql`
   }
 
   type Income {
-    incomeid: ID
+    _id: ID
     type: String
     startdate: Date
     incomesource: String
@@ -81,11 +81,11 @@ const typeDefs = gql`
     deleteCustomer(customerid: ID!): Customer
     updateCustomer(customerid: ID!, first: String!, last: String!, age: Int!, area: String!, address: String!, contactnumber: Int!, email: String!): Customer
     addAsset(type: String!, startdate: Date!, asxcode: String!, unit: String!, numberunits: Int!, priceperunit: Int!, customerid: ID!): Asset
-    deleteAsset(assetid: ID!): Asset
-    updateAsset(assetid: ID!, type: String!, startdate: Date!, asxcode: String!, unit: String!, numberunits: Int!, priceperunit: Int!, customerid: ID!): Asset
+    deleteAsset(_id: ID!, customerid: ID!): Asset
+    updateAsset(_id: ID!, type: String!, startdate: Date!, asxcode: String!, unit: String!, numberunits: Int!, priceperunit: Int!, customerid: ID!): Asset
     addIncome(type: String!, startdate: Date!, incomesource: String!, payfrequency: String!, amount: Int!, customerid: ID!): Income
-    deleteIncome(incomeid: ID!): Income
-    updateIncome(incomeid: ID!, type: String!, startdate: Date!, incomesource: String!, payfrequency: String!, amount: Int!, customerid: ID!): Income
+    deleteIncome(_id: ID!, customerid: ID!): Income
+    updateIncome(_id: ID!, type: String!, startdate: Date!, incomesource: String!, payfrequency: String!, amount: Int!, customerid: ID!): Income
   }
 `;
 

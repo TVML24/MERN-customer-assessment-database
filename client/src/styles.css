@@ -30,3 +30,79 @@
     padding-top: 0%;
     padding-bottom: 0%;
 }
+
+#login-warning {
+    padding-top: 20%;
+    font-size: 72px;
+    text-align: center;
+}
+
+.not-bootstrap-container {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.left-tile-home {
+    position: relative;
+    height: 400px;
+    background-image: url("../public/tingey-injury-law-firm-DZpc4UY8ZtY-unsplash.jpg");
+    color:aquamarine;
+    font-size: 32px;
+}
+
+.right-tile-home {
+    position: relative;
+    height: 400px;
+    background: orange;
+    background-image: url("../public/farhan-visuals--HE8sx0TvMU-unsplash.jpg");
+    color:aquamarine;
+    font-size: 32px;
+}
+
+.bucket {
+    position: absolute;
+}
+
+.row {
+    padding-top: 130px;
+    width: 1322px;
+    justify-content: space-around;
+
+}
+.left-tile-rules {
+    position: relative;
+    height: 400px;
+    background-image: url("../public/pexels-wendy-van-zyl-10506690.jpg");
+    color:aquamarine;
+    font-size: 32px;
+}
+.centre-tile-rules {
+    position: relative;
+    height: 400px;
+    background-image: url("../public/bookshelf.jpg");
+    color:aquamarine;
+    font-size: 32px;
+}
+.right-tile-rules {
+    position: relative;
+    height: 400px;
+    background-image: url("../public/fire.jpg");
+    color:aquamarine;
+    font-size: 32px;
+}
+.left-tile-customer {
+    position: relative;
+    height: 400px;
+    background-image: url("../public/penguins-g0ddd3a3a8_640.jpg");
+    color:aquamarine;
+    font-size: 32px;
+}
+.right-tile-customer {
+    position: relative;
+    height: 400px;
+    background-image: url("../public/search.jpg");
+    color:aquamarine;
+    font-size: 32px;
+}

@@ -1,7 +1,7 @@
 const { Schema, model, mongoose } = require('mongoose');
 
 const assetSchema = new Schema({
-    assetid: {
+    _id: {
         type: Schema.Types.ObjectId,
         default: () => new mongoose.Types.ObjectId(),
     },
@@ -22,7 +22,7 @@ const assetSchema = new Schema({
         required: true,
     },
     numberunits: {
-        type: String,
+        type: Number,
         required: true,
     },
     priceperunit: {

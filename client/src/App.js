@@ -14,6 +14,13 @@ import Login from './pages/Login';
 import Profile from './pages/Profile';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import RulesHome from './pages/ManageRules';
+import CustomerHome from './pages/CustomerHome';
+import AddRule from './pages/AddRule';
+import ViewRules from './pages/ViewRules';
+import DeleteRule from './pages/DeleteRule';
+import AddCustomer from './pages/AddCustomer';
+import SearchCustomers from './pages/SearchCustomers';
 
 import './styles.css';
 
@@ -68,6 +75,34 @@ function App() {
               <Route 
                 path="/profiles/:username"
                 element={<Profile />}
+              />
+              <Route 
+                path="/ruleshome"
+                element={<RulesHome />}
+              />
+              <Route 
+                path="/customerhome"
+                element={<CustomerHome />}
+              />
+              <Route 
+                path="/addrule"
+                element={<AddRule />}
+              />
+              <Route 
+                path="/viewrules"
+                element={<ViewRules />}
+              />
+              <Route 
+                path="/deleterule"
+                element={<DeleteRule />}
+              />
+              <Route 
+                path="/addcustomer"
+                element={<AddCustomer/>}
+              />
+              <Route 
+                path="/searchcustomers"
+                element={<SearchCustomers />}
               />
             </Routes>
           </div>
