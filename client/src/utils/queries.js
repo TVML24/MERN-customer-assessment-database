@@ -19,3 +19,19 @@ export const QUERY_ME = gql`
     }
   }
 `;
+
+export const QUERY_RULES = gql`
+query Rules {
+  rules {
+    _id
+    agemax
+    agemin
+    area
+    assetsmax
+    assetsmin
+    incomemax
+    incomemin
+    rulename
+  }
+}
+`;

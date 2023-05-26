@@ -1,9 +1,3 @@
-* {
-    margin: 0px;
-    padding: 0px;
-    background: rgb(40, 189, 73)
-}
-
 .nav-colour {
     background: yellow;
 }
@@ -105,4 +99,18 @@
     background-image: url("../public/search.jpg");
     color:aquamarine;
     font-size: 32px;
+}
+
+.form-holder {
+    background: cornsilk;
+}
+
+.ultimate-container {
+    background: green;
+    min-height: 100vh;
+}
+
+Table {
+    margin-top: 5%;
+    background: lightgray;
 }
