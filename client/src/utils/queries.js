@@ -103,3 +103,17 @@ query Customerbyname($last: String!) {
   }
 }
 `
+export const QUERY_CUSTOMERS = gql`
+query Customers {
+  customers {
+    address
+    age
+    area
+    contactnumber
+    customerid
+    email
+    first
+    last
+  }
+}
+`

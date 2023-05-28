@@ -1,14 +1,15 @@
-import React from 'react';
-import { Navigate, useParams } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
+import React, { useState } from 'react';
+import CustomerList from '../components/CustomerList';
+import { CustomerProvider } from '../utils/useCustomerContext';
 
 const SearchCustomers = () => {
 
   return (
     <main>
-      The page to search for Customers
+      <CustomerProvider>
+        <CustomerList />
+      </CustomerProvider>
     </main>
   );
 };
-
 export default SearchCustomers;
