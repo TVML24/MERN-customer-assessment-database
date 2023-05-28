@@ -55,3 +55,18 @@ mutation DeleteRule($rulename: String!) {
   }
 }
 `
+
+export const ADD_CUSTOMER = gql`
+mutation AddCustomer($first: String!, $last: String!, $age: Int!, $area: String!, $address: String!, $contactnumber: Int!, $email: String!) {
+  addCustomer(first: $first, last: $last, age: $age, area: $area, address: $address, contactnumber: $contactnumber, email: $email) {
+    address
+    age
+    area
+    contactnumber
+    customerid
+    email
+    first
+    last
+  }
+}
+`

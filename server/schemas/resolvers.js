@@ -31,6 +31,10 @@ const resolvers = {
       const customer = Customer.findOne({ customerid: customerid }).populate(['assets', 'income']);
       return customer;
     },
+    customerbyname: async (parent, { last }) => {
+      const customer = Customer.findOne({ last: last }).populate(['assets', 'income']);
+      return customer;
+    }
   },
 
   Mutation: {

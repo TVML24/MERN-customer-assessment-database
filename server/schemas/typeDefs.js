@@ -70,6 +70,7 @@ const typeDefs = gql`
     rule(rulename: String!): Rule
     customers: [Customer]
     customer(customerid: ID!): Customer
+    customerbyname(last: String!): Customer
   }
 
   type Mutation {
