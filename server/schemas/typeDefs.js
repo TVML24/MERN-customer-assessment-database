@@ -76,6 +76,7 @@ const typeDefs = gql`
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
+    viewCustomer(customerid: ID!): Customer
     addRule(rulename: String!, agemin: Int!, agemax: Int!, area: String!, incomemax: Int!, incomemin: Int!, assetsmax: Int!, assetsmin: Int!): Rule
     deleteRule(rulename: String!): Rule
     addCustomer(first: String!, last: String!, age: Int!, area: String!, address: String!, contactnumber: Int!, email: String!): Customer

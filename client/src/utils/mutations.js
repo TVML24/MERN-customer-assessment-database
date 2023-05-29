@@ -70,3 +70,20 @@ mutation AddCustomer($first: String!, $last: String!, $age: Int!, $area: String!
   }
 }
 `
+
+export const UPDATE_CUSTOMER = gql`
+mutation UpdateCustomer($customerid: ID!, $first: String!, $last: String!, $age: Int!, $area: String!, $address: String!, $contactnumber: Int!, $email: String!) {
+  updateCustomer(customerid: $customerid, first: $first, last: $last, age: $age, area: $area, address: $address, contactnumber: $contactnumber, email: $email) {
+    address
+    age
+    area
+    contactnumber
+    customerid
+    email
+    first
+    last
+  }
+}`
+
+// export const VIEW_CUSTOMER = gql`
+// `

@@ -13,7 +13,6 @@ import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Profile from './pages/Profile';
 import Header from './components/Header';
-import Footer from './components/Footer';
 import RulesHome from './pages/ManageRules';
 import CustomerHome from './pages/CustomerHome';
 import AddRule from './pages/AddRule';
@@ -21,6 +20,7 @@ import ViewRules from './pages/ViewRules';
 import DeleteRule from './pages/DeleteRule';
 import AddCustomer from './pages/AddCustomer';
 import SearchCustomers from './pages/SearchCustomers';
+import CustomerPersonalProfile from './pages/CustomerProfile';
 
 import './styles.css';
 
@@ -103,6 +103,10 @@ function App() {
               <Route 
                 path="/searchcustomers"
                 element={<SearchCustomers />}
+              />
+              <Route 
+                path="/customerprofile"
+                element={<CustomerPersonalProfile />}
               />
             </Routes>
           </div>

@@ -59,12 +59,7 @@
     position: absolute;
 }
 
-.row {
-    padding-top: 130px;
-    width: 1322px;
-    justify-content: space-around;
 
-}
 .left-tile-rules {
     position: relative;
     height: 400px;
@@ -108,6 +103,7 @@
 .ultimate-container {
     background: green;
     min-height: 100vh;
+    min-width: 100vw;
 }
 
 Table {

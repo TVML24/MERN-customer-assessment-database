@@ -112,6 +112,10 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
+    viewCustomer: async (parent, { customerid }) => {
+      const customer = Customer.findOne({ customerid: customerid }).populate(['assets', 'income']);
+      return customer;
+    },
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
 

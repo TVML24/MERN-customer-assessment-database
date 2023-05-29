@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import {useCustomerContext} from '../../utils/useCustomerContext'
+import {useNavigate} from 'react-router-dom';
 
 export default function CustomerList() {
+    const navigate = useNavigate();
     const {data, SearchById, SearchByLast} = useCustomerContext();
     const [formState, setFormState] = useState({ input: "",});
     const [validated, setValidated] = useState(false);
@@ -52,6 +54,7 @@ export default function CustomerList() {
                 const d = await SearchByLast(dataState.last);
                 // window.location.reload(false);
             }
+            navigate('/customerprofile', {replace: true});
         } catch (e) {
             console.error(e);
         }
