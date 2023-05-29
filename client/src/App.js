@@ -21,6 +21,8 @@ import DeleteRule from './pages/DeleteRule';
 import AddCustomer from './pages/AddCustomer';
 import SearchCustomers from './pages/SearchCustomers';
 import CustomerPersonalProfile from './pages/CustomerProfile';
+import AssetManagement from './pages/AssetManagement';
+import TestCustomer from './pages/TestCustomer';
 
 import './styles.css';
 
@@ -107,6 +109,14 @@ function App() {
               <Route 
                 path="/customerprofile"
                 element={<CustomerPersonalProfile />}
+              />
+              <Route 
+                path="/assetmanagement"
+                element={<AssetManagement />}
+              />
+              <Route 
+                path="/testagainstrule"
+                element={<TestCustomer />}
               />
             </Routes>
           </div>

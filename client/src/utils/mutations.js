@@ -85,5 +85,81 @@ mutation UpdateCustomer($customerid: ID!, $first: String!, $last: String!, $age:
   }
 }`
 
-// export const VIEW_CUSTOMER = gql`
-// `
+export const VIEW_CUSTOMER = gql`
+mutation ViewCustomer($customerid: ID!) {
+  viewCustomer(customerid: $customerid) {
+    address
+    age
+    area
+    assets {
+      _id
+      asxcode
+      customerid
+      numberunits
+      priceperunit
+      startdate
+      type
+      unit
+    }
+    contactnumber
+    customerid
+    email
+    first
+    income {
+      _id
+      amount
+      customerid
+      incomesource
+      payfrequency
+      startdate
+      type
+    }
+    last
+  }
+}
+`
+
+export const ADD_ASSET = gql`
+mutation AddAsset($type: String!, $startdate: Date!, $asxcode: String!, $unit: String!, $numberunits: Int!, $priceperunit: Int!, $customerid: ID!) {
+  addAsset(type: $type, startdate: $startdate, asxcode: $asxcode, unit: $unit, numberunits: $numberunits, priceperunit: $priceperunit, customerid: $customerid) {
+    _id
+    asxcode
+    customerid
+    numberunits
+    priceperunit
+    startdate
+    type
+    unit
+  }
+}
+`
+
+export const REMOVE_ASSET = gql`
+mutation DeleteAsset($_id: ID!, $customerid: ID!) {
+  deleteAsset(_id: $_id, customerid: $customerid) {
+    _id
+    asxcode
+    customerid
+    numberunits
+    priceperunit
+    startdate
+    type
+    unit
+  }
+}
+`
+export const VIEW_RULE = gql`
+mutation ViewRule($rulename: String!) {
+  viewRule(rulename: $rulename) {
+    _id
+    agemax
+    agemin
+    area
+    assetsmax
+    assetsmin
+    incomemax
+    incomemin
+    rulename
+  }
+}
+`

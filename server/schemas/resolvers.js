@@ -67,8 +67,9 @@ const resolvers = {
     },
     //works
     deleteAsset: async (parent, {_id, customerid }) => {
+      console.log ({_id, customerid});
       const asset = await Asset.findOneAndDelete({ _id: _id });
-      const customer = await Customer.findOneAndUpdate({ customerid: customerid }, { $pull: { income: asset._id }}).populate('assets');
+      const customer = await Customer.findOneAndUpdate({ customerid: customerid }, { $pull: { assets: asset._id}}).populate('assets');
       return asset;
     },
     //works
@@ -77,7 +78,7 @@ const resolvers = {
       const asset = await Asset.findOneAndUpdate({ _id: _id }, 
         { _id:_id, customerid:customerid, type:type, startdate: startdate, asxcode:asxcode, unit:unit, numberunits:numberunits, priceperunit:priceperunit },
         {new: true});
-      const customerupdated = await Customer.findOneAndUpdate( { customerid:customerid }, { $push: { asset: _id } });
+      const customerupdated = await Customer.findOneAndUpdate( { customerid:customerid }, { $push: { assets: _id } });
       return asset;
     },
     //works
@@ -116,6 +117,19 @@ const resolvers = {
       const customer = Customer.findOne({ customerid: customerid }).populate(['assets', 'income']);
       return customer;
     },
+    viewRule: async (parent, {rulename}) => {
+      const rule = Rule.findOne({ rulename: rulename});
+      return rule;
+    },
+    // testAgainstRule: async (parent, { customerid, rulename }) => {
+    //   console.log(customerid);
+    //   console.log(rulename);
+    //   const cusResponse = Customer.findOne({ customerid: customerid }).populate(['assets', 'income']);
+    //   const rule = Rule.findOne({ rulename:rulename });
+    //   return {cusResponse, rule};
+    //   // console.log(cusResponse.data.testAgainstRule.first);
+    //   // console.log(rule.rule);
+    // },
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
 

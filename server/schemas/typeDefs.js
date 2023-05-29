@@ -77,6 +77,7 @@ const typeDefs = gql`
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
     viewCustomer(customerid: ID!): Customer
+    viewRule(rulename: String!): Rule
     addRule(rulename: String!, agemin: Int!, agemax: Int!, area: String!, incomemax: Int!, incomemin: Int!, assetsmax: Int!, assetsmin: Int!): Rule
     deleteRule(rulename: String!): Rule
     addCustomer(first: String!, last: String!, age: Int!, area: String!, address: String!, contactnumber: Int!, email: String!): Customer
@@ -92,3 +93,5 @@ const typeDefs = gql`
 `;
 
 module.exports = typeDefs;
+
+// testAgainstRule(customerid: ID!, rulename: String!): Customer

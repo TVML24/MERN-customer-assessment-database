@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import {useCustomerContext} from '../../utils/useCustomerContext';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
@@ -9,6 +9,7 @@ import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import { useMutation } from '@apollo/client';
 import { UPDATE_CUSTOMER } from '../../utils/mutations';
+import {useNavigate} from 'react-router-dom';
 
 
 export default function CustomerProfile() {
@@ -29,6 +30,11 @@ export default function CustomerProfile() {
     const handleShow = () => setShow(true);
 // states for the form
     const [formState, setFormState] = useState({ first: first, last: last, age: age, area: area, address: address, contactnumber: contactnumber, email: email,});
+// handlers for navigation
+const navigate = useNavigate();
+const navToAssets = useCallback(() => navigate('/assetmanagement', {replace: true}), [navigate]);
+const navToSearch = useCallback(() => navigate('/searchcustomers', {replace: true}), [navigate]);
+const navToTest = useCallback(() => navigate('/testagainstrule', {replace: true}), [navigate]);
 //handlers for the form
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -104,11 +110,11 @@ export default function CustomerProfile() {
                     </Row>
                     </Container>
                     <div className="mb-2">
-                        <Button variant="primary" size="lg">Manage Customer Assets</Button>{' '}
+                        <Button variant="primary" size="lg" onClick={navToAssets}>Manage Customer Assets</Button>{' '}
                         <Button variant="primary" size="lg">Manage Customer Income</Button>{' '}
                         <Button variant="primary" size="lg" onClick={handleShow}>Update Customer Details</Button>{' '}
-                        <Button variant="primary" size="lg">Test Customer Against Rule</Button>{' '}
-                        <Button variant="primary" size="lg">Back to Search</Button>{' '}
+                        <Button variant="primary" size="lg" onClick={navToTest}>Test Customer Against Rule</Button>{' '}
+                        <Button variant="primary" size="lg" onClick={navToSearch}>Back to Search</Button>{' '}
                     </div>
                     <Modal show={show} onHide={handleClose}>
                         <Modal.Header closeButton>

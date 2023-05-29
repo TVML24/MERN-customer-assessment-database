@@ -71,18 +71,17 @@ export default function CustomerList() {
             <section>
             <Form noValidate validated={validated} onSubmit={handleSubmit}>
                 <h1>Search for the customer</h1>
+                <Form.Group className="mb-3">
+                    <Form.Label>Area:</Form.Label>
+                    <Form.Select onChange={handleChangeTwo} value={selectState.select} name='select'>
+                        <option>Search by CustomerID</option>
+                        <option>Search by Customer's Family Name</option>
+                    </Form.Select>
+                </Form.Group>
                 <Form.Group className="mb-3" controlId="customerForm.ControlInput5">
                     <Form.Label>CustomerID/Family Name:</Form.Label>
                     <Form.Control required type="input" placeholder="Enter the customerID or Family Name here!" onChange={handleChange} value={formState.input} name='input'/>
                     <Form.Control.Feedback type="invalid">Please enter the customer's ID or Family Name</Form.Control.Feedback>
-                </Form.Group>
-                <Form.Group className="mb-3">
-                    <Form.Label>Area:</Form.Label>
-                    <Form.Select onChange={handleChangeTwo} value={selectState.select} name='select'>
-                        <option></option>
-                        <option>Search by CustomerID</option>
-                        <option>Search by Customer's Family Name</option>
-                    </Form.Select>
                 </Form.Group>
                 <Button variant="primary" type="submit">
                     Submit
