@@ -1,12 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import Table from 'react-bootstrap/Table';
 import {useRuleContext} from '../../utils/useRuleContext'
-
+import Row from 'react-bootstrap/Row';
+import Button from 'react-bootstrap/Button';
+import {useNavigate} from 'react-router-dom';
 
 export default function RuleList() {
+    const navigate = useNavigate();
+    const navBack = useCallback(() => navigate('/ruleshome', {replace: true}), [navigate]);
   const {data, removeRule} = useRuleContext();
   return (
     <div>
+        <Row>
+            <Button variant="primary" size="lg" onClick={navBack}>Return to Rule Management</Button>
+        </Row>
       {data ? (
         <>
           <section className="rule-list">

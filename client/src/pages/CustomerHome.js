@@ -1,6 +1,6 @@
 import React, {useCallback} from 'react';
 import Auth from '../utils/auth';
-import Row from 'react-bootstrap/Row';
+import Container from 'react-bootstrap/Container';
 import {useNavigate} from 'react-router-dom';
 
 const RulesHome = () => {
@@ -13,14 +13,14 @@ const RulesHome = () => {
             <div className="bucket" >
               {Auth.loggedIn() ? (
                 <>
-                <Row>
-                  <div style={{ width: 400 }} className="left-tile-customer" onClick={handleOnClick}>
+                <Container>
+                  <div style={{ width: 400 }} className="left-tile-customer tile" onClick={handleOnClick}>
                     Add a Customer
                   </div>
-                  <div style={{ width: 400 }}className="right-tile-customer" onClick={othHandleonClick}>
+                  <div style={{ width: 400 }}className="right-tile-customer tile" onClick={othHandleonClick}>
                     Search for a Customer
                     </div>
-                </Row>
+                </Container>
                 </>
               ) : (
                 <>

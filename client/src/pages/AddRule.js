@@ -1,13 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { useMutation } from '@apollo/client';
 import { ADD_RULE } from '../utils/mutations';
+import {useNavigate} from 'react-router-dom';
 
 const AddRule = () => {
     const [formState, setFormState] = useState({ rulename: '', agemin: '', agemax: '', area: '', incomemin: '', incomemax: '', assetsmin: '', assetsmax: '',});
     const [addrule, { error }] = useMutation(ADD_RULE);
     const [validated, setValidated] = useState(false);
+
+    const navigate = useNavigate();
+    const navBack = useCallback(() => navigate('/ruleshome', {replace: true}), [navigate]);
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -101,9 +105,8 @@ const AddRule = () => {
                     <Form.Control required type="maximum-asset" placeholder="enter the asset threshold here" onChange={handleChange} value={formState.assetsmax} name='assetsmax'/>
                     <Form.Control.Feedback type="invalid">Please enter the maximum asset value</Form.Control.Feedback>
                 </Form.Group>
-                <Button variant="primary" type="submit">
-                    Submit
-                </Button>
+                <Button variant="primary" type="submit">Submit</Button>
+                <Button variant="secondary" onClick={navBack}>Go Back</Button>
             </Form>
         </div>  
     </main>

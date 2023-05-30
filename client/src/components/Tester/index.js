@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useCallback } from 'react';
 import Table from 'react-bootstrap/Table';
 import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
@@ -40,15 +40,19 @@ export default function Tester() {
                     && testData.data.viewCustomer.age > ruleData.data.viewRule.agemin && testData.data.viewCustomer.age < ruleData.data.viewRule.agemax
                     && ruleData.data.viewRule.area === testData.data.viewCustomer.area) {
                         const displayDiv = document.getElementById("display-heading").textContent= "Customer is eligible for " + ruleData.data.viewRule.rulename;
+                        const secondDiv = document.getElementById("secondary-heading").textContent= "Customer Total Income: $" + incomeSum + " p.a, " + "Customer Total Assets: $" + assetSum;  
                     } else {
                         const displayDiv = document.getElementById("display-heading").textContent= "Customer is not eligible for " + ruleData.data.viewRule.rulename;
+                        const secondDiv = document.getElementById("secondary-heading").textContent= "Customer Total Income: $" + incomeSum + " p.a, " + "Customer Total Assets: $" + assetSum; 
                     }
             } else if (incomeSum < ruleData.data.viewRule.incomemax && incomeSum >= ruleData.data.viewRule.incomemin 
                 && assetSum < ruleData.data.viewRule.assetsmax && assetSum >= ruleData.data.viewRule.assetsmin
                 && testData.data.viewCustomer.age > ruleData.data.viewRule.agemin && testData.data.viewCustomer.age < ruleData.data.viewRule.agemax) {
                 const displayDiv = document.getElementById("display-heading").textContent= "Customer is eligible for " + ruleData.data.viewRule.rulename;
+                const secondDiv = document.getElementById("secondary-heading").textContent= "Customer Total Income: $" + incomeSum + " p.a, " + "Customer Total Assets: $" + assetSum; 
             } else {
                 const displayDiv = document.getElementById("display-heading").textContent= "Customer is not eligible for " + ruleData.data.viewRule.rulename;
+                const secondDiv = document.getElementById("secondary-heading").textContent= "Customer Total Income: $" + incomeSum + " p.a, " + "Customer Total Assets: $" + assetSum; 
             }
         } catch (e) {
             console.error(e);
@@ -75,7 +79,7 @@ export default function Tester() {
                   <th>Maximum Income</th>
                   <th>Minimum Asset Value</th>
                   <th>Maximum Asset Value</th>
-                  <th>Delete Rule</th>
+                  <th>Test Rule</th>
                 </tr>
               </thead>
 
@@ -106,6 +110,7 @@ export default function Tester() {
               </tbody>
             </Table>
             <h1 id= "display-heading"></h1>
+            <h2 id= "secondary-heading"></h2>
           </section>
         </>
       ) : (

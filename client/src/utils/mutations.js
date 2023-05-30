@@ -163,3 +163,30 @@ mutation ViewRule($rulename: String!) {
   }
 }
 `
+
+export const ADD_INCOME = gql`
+mutation AddIncome($type: String!, $startdate: Date!, $incomesource: String!, $payfrequency: String!, $amount: Int!, $customerid: ID!) {
+  addIncome(type: $type, startdate: $startdate, incomesource: $incomesource, payfrequency: $payfrequency, amount: $amount, customerid: $customerid) {
+    _id
+    amount
+    customerid
+    incomesource
+    payfrequency
+    startdate
+    type
+  }
+}
+`
+export const REMOVE_INCOME = gql`
+mutation DeleteIncome($_id: ID!, $customerid: ID!) {
+  deleteIncome(_id: $_id, customerid: $customerid) {
+    _id
+    amount
+    customerid
+    incomesource
+    payfrequency
+    startdate
+    type
+  }
+}
+`

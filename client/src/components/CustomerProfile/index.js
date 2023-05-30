@@ -35,6 +35,7 @@ const navigate = useNavigate();
 const navToAssets = useCallback(() => navigate('/assetmanagement', {replace: true}), [navigate]);
 const navToSearch = useCallback(() => navigate('/searchcustomers', {replace: true}), [navigate]);
 const navToTest = useCallback(() => navigate('/testagainstrule', {replace: true}), [navigate]);
+const navToIncome = useCallback(() => navigate('/incomemanagement', {replace: true}), [navigate]);
 //handlers for the form
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -81,10 +82,11 @@ const navToTest = useCallback(() => navigate('/testagainstrule', {replace: true}
     return (
         <div>
           {
-              <section>
-                <Container>
+              <section className='profile-container'>
                 <Row>
-                  <h1>{last}, {first}</h1>
+                  <h1 className='cust-name'>{last}, {first}</h1>
+                </Row>
+                <Container>
                   <Card style={{ width: '18rem' }}>
                         <Card.Header>Personal</Card.Header>
                         <ListGroup variant="flush">
@@ -107,15 +109,14 @@ const navToTest = useCallback(() => navigate('/testagainstrule', {replace: true}
                             <ListGroup.Item>Email Address: {email}</ListGroup.Item>
                         </ListGroup>
                     </Card>
-                    </Row>
                     </Container>
-                    <div className="mb-2">
+                    <Container>
                         <Button variant="primary" size="lg" onClick={navToAssets}>Manage Customer Assets</Button>{' '}
-                        <Button variant="primary" size="lg">Manage Customer Income</Button>{' '}
+                        <Button variant="primary" size="lg" onClick={navToIncome}>Manage Customer Income</Button>{' '}
                         <Button variant="primary" size="lg" onClick={handleShow}>Update Customer Details</Button>{' '}
                         <Button variant="primary" size="lg" onClick={navToTest}>Test Customer Against Rule</Button>{' '}
                         <Button variant="primary" size="lg" onClick={navToSearch}>Back to Search</Button>{' '}
-                    </div>
+                    </Container>
                     <Modal show={show} onHide={handleClose}>
                         <Modal.Header closeButton>
                             <Modal.Title>Update Customer Details</Modal.Title>

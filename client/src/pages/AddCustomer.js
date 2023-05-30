@@ -1,13 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { ADD_CUSTOMER }from '../../src/utils/mutations';
 import { useMutation } from '@apollo/client';
+import { useNavigate } from 'react-router-dom';
 
 const AddCustomer = () => {
     const [formState, setFormState] = useState({ first: '', last: '', age: '', area: '', address: '', contactnumber: '', email: '',});
     const [addcustomer, { error }] = useMutation(ADD_CUSTOMER);
     const [validated, setValidated] = useState(false);
+
+    const navigate = useNavigate();
+    const navBack = useCallback(() => navigate('/customerhome', {replace: true}), [navigate]);
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -94,6 +98,7 @@ const AddCustomer = () => {
                 <Button variant="primary" type="submit">
                     Submit
                 </Button>
+                <Button variant="secondary" onClick={navBack}>Go Back</Button>
             </Form>
         </div>  
     </main>

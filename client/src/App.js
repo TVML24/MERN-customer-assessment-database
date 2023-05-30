@@ -23,7 +23,10 @@ import SearchCustomers from './pages/SearchCustomers';
 import CustomerPersonalProfile from './pages/CustomerProfile';
 import AssetManagement from './pages/AssetManagement';
 import TestCustomer from './pages/TestCustomer';
+import IncomeManagement from './pages/IncomeManagement';
+import Row from 'react-bootstrap/Row';
 
+import 'bootswatch/dist/slate/bootstrap.min.css';
 import './styles.css';
 
 // Construct our main GraphQL API endpoint
@@ -55,7 +58,9 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div className="flex-column justify-flex-start min-100-vh ultimate-container" >
-          <Header />
+          <Row>
+            <Header />
+          </Row>
           <div className="container" >
             <Routes>
               <Route 
@@ -117,6 +122,10 @@ function App() {
               <Route 
                 path="/testagainstrule"
                 element={<TestCustomer />}
+              />
+              <Route 
+                path="/incomemanagement"
+                element={<IncomeManagement />}
               />
             </Routes>
           </div>

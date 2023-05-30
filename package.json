@@ -17,6 +17,7 @@
     "concurrently": "^5.1.0"
   },
   "dependencies": {
+    "bootswatch": "^5.2.3",
     "graphql-date-scalars": "^0.2.0"
   }
 }
