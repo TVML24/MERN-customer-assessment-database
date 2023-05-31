@@ -49,7 +49,7 @@ Screenshot:
 ![My Customer Database](./client/public/Screen.jpg)
 
 The deployed application:
-
+https://arcane-peak-58750.herokuapp.com/customerprofile
 
 ## Credits
 
