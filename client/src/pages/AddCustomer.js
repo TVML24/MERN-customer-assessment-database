@@ -36,7 +36,7 @@ const AddCustomer = () => {
                 contactnumber:+formState.contactnumber,
              },
             });
-            window.location.reload(false);
+            window.location.reload(true);
         } catch (e) {
             console.error(e);
         }
